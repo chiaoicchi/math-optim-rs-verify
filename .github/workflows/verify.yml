@@ -45,9 +45,14 @@ jobs:
           ./generate.py -p ${{ matrix.problem }}
           cd ..
 
+          echo "Build"
+          cargo build --release --bin ${{ matrix.problem }}
+          BIN=target/release/${{ matrix.problem }}
+
           echo "Test"
           IN_DIR=library-checker-problems/${{ matrix.category }}/${{ matrix.problem }}/in
           OUT_DIR=library-checker-problems/${{ matrix.category }}/${{ matrix.problem }}/out
+          CHECKER=library-checker-problems/${{ matrix.category }}/${{ matrix.problem }}/checker
           passed=0
           failed=0
           for input in "$IN_DIR"/*.in; do
@@ -61,11 +66,26 @@ jobs:
               continue
             fi
 
-            if cargo run --release --bin ${{ matrix.problem }} < "$input" 2>/dev/null | diff -q - "$output" > /dev/null 2>&1; then
-              echo "PASSED: $basename"
-              passed=$((passed + 1))
+            if $BIN < "$input" > actual.out 2>/dev/null; then
+              if [ -x "$CHECKER" ]; then
+                if $CHECKER "$input" actual.out "$output" > /dev/null 2>&1; then
+                  echo "PASSED: $basename"
+                  passed=$((passed + 1))
+                else
+                  echo "FAILED: $basename"
+                  failed=$((failed + 1))
+                fi
+              else
+                if diff -q actual.out "$output" > /dev/null 2>&1; then
+                  echo "PASSED: $basename"
+                  passed=$((passed + 1))
+                else
+                  echo "FAILED: $basename"
+                  failed=$((failed + 1))
+                fi
+              fi
             else
-              echo "FAILED: $basename"
+              echo "FAILED (runtime error): $basename"
               failed=$((failed + 1))
             fi
           done
@@ -81,3 +101,4 @@ jobs:
             echo "Results: $passed passed, $failed failed"
             exit 1
           fi
+
