@@ -1,6 +1,6 @@
 # Library Checker for Rust
 
-This is repository to verify [math-optim-rs](https://github.com/chiaoicchi/math-optim-rs).
+This is a repository to verify [math-optim-rs](https://github.com/chiaoicchi/math-optim-rs).
 
 ## Environment
 
@@ -27,3 +27,7 @@ Or, if you have direnv set up:
 ```bash
 direnv allow
 ```
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
