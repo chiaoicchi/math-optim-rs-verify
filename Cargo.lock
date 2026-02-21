@@ -5,7 +5,7 @@ version = 4
 [[package]]
 name = "data-strux"
 version = "0.1.0"
-source = "git+https://github.com/chiaoicchi/math-optim-rs#c02d488a414161dd035f2709a0799b644c23de9d"
+source = "git+https://github.com/chiaoicchi/math-optim-rs#31dc7e44c58a94d01f94b93caf6b1b8fa31469c2"
 
 [[package]]
 name = "math-optim-verify"

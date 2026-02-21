@@ -1,5 +1,7 @@
 # Rust
 /target
+.cargo/config.toml
 
 # Nix
 /.direnv
+
