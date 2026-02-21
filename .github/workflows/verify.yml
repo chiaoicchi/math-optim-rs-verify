@@ -23,6 +23,9 @@ jobs:
           - category: data_structure
             problem: point_add_range_sum
 
+          - category: data_structure
+            problem: point_set_range_composite
+
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
