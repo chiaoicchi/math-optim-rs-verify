@@ -35,6 +35,9 @@ jobs:
           - category: tree
             problem: tree_diameter
 
+          - category: number_theory
+            problem: enumerate_primes
+
           - category: geo
             problem: sort_points_by_argument
 
