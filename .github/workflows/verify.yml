@@ -29,6 +29,9 @@ jobs:
           - category: data_structure
             problem: range_affine_range_sum
 
+          - category: graph
+            problem: scc
+
           - category: geo
             problem: sort_points_by_argument
 
@@ -48,6 +51,8 @@ jobs:
       - name: Verify ${{ matrix.problem }}
         timeout-minutes: 5
         run: |
+          ulimit -s unlimited
+
           echo "PROBLEM=${{ matrix.problem }}"
 
           echo "Generate test cases"
