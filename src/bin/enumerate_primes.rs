@@ -32,7 +32,7 @@ fn main() {
         if primes.len() < b {
             0
         } else {
-            (primes.len() - b + a - 1) / a
+            (primes.len() - b).div_ceil(a)
         }
     )
     .ok();
