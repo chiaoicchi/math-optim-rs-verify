@@ -11,11 +11,16 @@ name = "geome"
 version = "0.1.0"
 
 [[package]]
+name = "graphia"
+version = "0.1.0"
+
+[[package]]
 name = "math-optim-verify"
 version = "0.1.0"
 dependencies = [
  "data-strux",
  "geome",
+ "graphia",
  "seqenz",
 ]
 
