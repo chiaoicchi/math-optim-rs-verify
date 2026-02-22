@@ -29,6 +29,9 @@ jobs:
           - category: data_structure
             problem: range_affine_range_sum
 
+          - category: geo
+            problem: sort_points_by_argument
+
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable

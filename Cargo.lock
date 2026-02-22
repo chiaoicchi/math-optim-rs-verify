@@ -5,11 +5,20 @@ version = 4
 [[package]]
 name = "data-strux"
 version = "0.1.0"
-source = "git+https://github.com/chiaoicchi/math-optim-rs#31dc7e44c58a94d01f94b93caf6b1b8fa31469c2"
+
+[[package]]
+name = "geome"
+version = "0.1.0"
 
 [[package]]
 name = "math-optim-verify"
 version = "0.1.0"
 dependencies = [
  "data-strux",
+ "geome",
+ "seqenz",
 ]
+
+[[package]]
+name = "seqenz"
+version = "0.1.0"
