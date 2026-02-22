@@ -51,6 +51,8 @@ jobs:
       - name: Verify ${{ matrix.problem }}
         timeout-minutes: 5
         run: |
+          ulimit -s unlimited
+
           echo "PROBLEM=${{ matrix.problem }}"
 
           echo "Generate test cases"

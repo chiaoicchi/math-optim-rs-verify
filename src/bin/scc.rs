@@ -36,19 +36,17 @@ fn main() {
     }
     let mut order = vec![0usize; n];
     let mut pos = offset.clone();
-    for i in 0..n {
-        let c = scc[i];
+    for (i, &c) in scc.iter().enumerate() {
         order[pos[c]] = i;
         pos[c] += 1;
     }
 
     writeln!(stdout, "{}", num_comp).ok();
-    for c in 0..num_comp {
-        let start = offset[c];
+    for (c, &start) in offset.iter().enumerate() {
         let end = offset[c + 1];
         write!(stdout, "{}", end - start).ok();
-        for j in start..end {
-            write!(stdout, " {}", order[j]).ok();
+        for order in order.iter() {
+            write!(stdout, " {}", order).ok();
         }
         writeln!(stdout).ok();
     }
