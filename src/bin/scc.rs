@@ -42,11 +42,12 @@ fn main() {
     }
 
     writeln!(stdout, "{}", num_comp).ok();
-    for (c, &start) in offset.iter().enumerate() {
+    for c in 0..num_comp {
+        let start = offset[c];
         let end = offset[c + 1];
         write!(stdout, "{}", end - start).ok();
-        for order in order.iter() {
-            write!(stdout, " {}", order).ok();
+        for j in start..end {
+            write!(stdout, " {}", order[j]).ok();
         }
         writeln!(stdout).ok();
     }
