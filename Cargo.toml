@@ -5,6 +5,7 @@ edition = "2024"
 rust-version = "1.89"
 
 [dependencies]
+algebrae = { git = "https://github.com/chiaoicchi/math-optim-rs", subdirectory = "crates/algebrae" }
 data-strux = { git = "https://github.com/chiaoicchi/math-optim-rs", subdirectory = "crates/data-strux" }
 graphia = { git = "https://github.com/chiaoicchi/math-optim-rs", subdirectory = "crates/graphia" }
 geome = { git = "https://github.com/chiaoicchi/math-optim-rs", subdirectory = "crates/geome" }

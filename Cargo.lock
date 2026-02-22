@@ -3,6 +3,10 @@
 version = 4
 
 [[package]]
+name = "algebrae"
+version = "0.1.0"
+
+[[package]]
 name = "data-strux"
 version = "0.1.0"
 
@@ -18,6 +22,7 @@ version = "0.1.0"
 name = "math-optim-verify"
 version = "0.1.0"
 dependencies = [
+ "algebrae",
  "data-strux",
  "geome",
  "graphia",
