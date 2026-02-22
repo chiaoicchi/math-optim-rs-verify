@@ -46,8 +46,8 @@ fn main() {
         let start = offset[c];
         let end = offset[c + 1];
         write!(stdout, "{}", end - start).ok();
-        for j in start..end {
-            write!(stdout, " {}", order[j]).ok();
+        for order in order.iter().take(end).skip(start) {
+            write!(stdout, " {}", order).ok();
         }
         writeln!(stdout).ok();
     }
