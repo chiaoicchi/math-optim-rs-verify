@@ -32,6 +32,9 @@ jobs:
           - category: graph
             problem: scc
 
+          - category: tree
+            problem: tre_diameter
+
           - category: geo
             problem: sort_points_by_argument
 
