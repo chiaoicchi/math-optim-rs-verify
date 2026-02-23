@@ -21,6 +21,9 @@ jobs:
             problem: unionfind
 
           - category: data_structure
+            problem: staticrmq
+
+          - category: data_structure
             problem: point_add_range_sum
 
           - category: data_structure
