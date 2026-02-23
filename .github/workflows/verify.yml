@@ -35,6 +35,9 @@ jobs:
           - category: tree
             problem: tree_diameter
 
+          - category: tree
+            problem: vertex_add_subtree_sum
+
           - category: number_theory
             problem: enumerate_primes
 
