@@ -39,6 +39,9 @@ jobs:
             problem: tree_diameter
 
           - category: tree
+            problem: lca
+
+          - category: tree
             problem: vertex_add_subtree_sum
 
           - category: number_theory
