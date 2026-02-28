@@ -35,6 +35,9 @@ jobs:
           - category: graph
             problem: scc
 
+          - category: graph
+            problem: bipartitematching
+
           - category: tree
             problem: tree_diameter
 
