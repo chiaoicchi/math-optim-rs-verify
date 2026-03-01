@@ -48,6 +48,9 @@ jobs:
             problem: vertex_add_subtree_sum
 
           - category: number_theory
+            problem: primality_test
+
+          - category: number_theory
             problem: enumerate_primes
 
           - category: linear_algebra
