@@ -50,6 +50,24 @@ jobs:
           - category: number_theory
             problem: enumerate_primes
 
+          - category: linear_algebra
+            problem: matrix_product
+
+          - category: linear_algebra
+            problem: pow_of_matrix
+
+          - category: linear_algebra
+            problem: matrix_det
+
+          - category: linear_algebra
+            problem: matrix_rank
+
+          - category: linear_algebra
+            problem: system_of_linear_equations
+
+          - category: linear_algebra
+            problem: inverse_matrix
+
           - category: geo
             problem: sort_points_by_argument
 
