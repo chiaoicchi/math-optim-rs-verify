@@ -4,6 +4,7 @@ use std::io::{BufWriter, Read, Write, stdin, stdout};
 
 const MOD: u32 = 998_244_353;
 
+#[allow(clippy::collapsible_else_if)]
 fn main() {
     let mut input = Vec::new();
     stdin().lock().read_to_end(&mut input).unwrap();
