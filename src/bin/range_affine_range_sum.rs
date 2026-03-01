@@ -1,4 +1,5 @@
-use data_strux::segment_tree::{Action, LazySegmentTree, Monoid};
+use algebrae::algebra::Monoid;
+use data_strux::segment_tree::{Action, LazySegmentTree};
 use std::io::{BufWriter, Read, Write, stdin, stdout};
 
 fn main() {

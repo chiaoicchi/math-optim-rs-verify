@@ -26,8 +26,8 @@ fn main() {
     let mat_a = Matrix::from_flat(n, n, a);
     let ans = mat_a.pow(k);
     for row in ans.iter() {
-        for i in 0..n {
-            write!(stdout, "{} ", row[i]).ok();
+        for b in row.iter() {
+            write!(stdout, "{} ", b).ok();
         }
         writeln!(stdout).ok();
     }

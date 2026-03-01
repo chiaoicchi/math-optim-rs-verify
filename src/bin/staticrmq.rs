@@ -1,4 +1,5 @@
-use data_strux::sparse_table::{Band, SparseTable};
+use algebrae::algebra::Band;
+use data_strux::sparse_table::SparseTable;
 use std::io::{BufWriter, Read, Write, stdin, stdout};
 
 fn main() {

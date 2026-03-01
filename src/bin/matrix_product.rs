@@ -29,8 +29,8 @@ fn main() {
     let mat_b = Matrix::from_flat(m, k, b);
     let ans = mat_a * mat_b;
     for row in ans.iter() {
-        for i in 0..k {
-            write!(stdout, "{} ", row[i]).ok();
+        for c in row.iter() {
+            write!(stdout, "{} ", c).ok();
         }
         writeln!(stdout).ok();
     }
