@@ -74,6 +74,9 @@ jobs:
           - category: geo
             problem: static_convex_hull
 
+          - category: other
+            problem: longest_increasing_subsequence
+
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
