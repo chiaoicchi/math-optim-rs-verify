@@ -1,6 +1,7 @@
-use algebrae::algebra::Band;
-use data_strux::sparse_table::SparseTable;
+use algebrae::{linear::Matrix, modular::Gf32};
 use std::io::{BufWriter, Read, Write, stdin, stdout};
+
+const MOD: u32 = 998_244_353;
 
 fn main() {
     let mut input = Vec::new();
@@ -20,23 +21,17 @@ fn main() {
     }
 
     let n = parse!(usize);
-    let q = parse!(u32);
-
-    let a: Vec<Min> = (0..n).map(|_| Min(parse!(u32))).collect();
-    let sparse_table = SparseTable::<Min>::from_vec(a);
-
-    for _ in 0..q {
-        let l = parse!(usize);
-        let r = parse!(usize);
-        writeln!(stdout, "{}", sparse_table.range_fold(l..r).0).ok();
-    }
-}
-
-#[derive(Clone, Copy)]
-struct Min(u32);
-
-impl Band for Min {
-    fn op(&self, other: &Self) -> Self {
-        Min(self.0.min(other.0))
+    let m = parse!(usize);
+    let k = parse!(usize);
+    let a: Vec<Gf32<MOD>> = (0..n * m).map(|_| Gf32::new(parse!(u32))).collect();
+    let b: Vec<Gf32<MOD>> = (0..m * k).map(|_| Gf32::new(parse!(u32))).collect();
+    let mat_a = Matrix::from_flat(n, m, a);
+    let mat_b = Matrix::from_flat(m, k, b);
+    let ans = mat_a * mat_b;
+    for row in ans.iter() {
+        for c in row.iter() {
+            write!(stdout, "{} ", c).ok();
+        }
+        writeln!(stdout).ok();
     }
 }

@@ -1,4 +1,5 @@
-use data_strux::segment_tree::{Monoid, SegmentTree};
+use algebrae::algebra::Monoid;
+use data_strux::segment_tree::SegmentTree;
 use std::io::{BufWriter, Read, Write, stdin, stdout};
 
 fn main() {

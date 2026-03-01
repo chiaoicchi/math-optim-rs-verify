@@ -1,4 +1,5 @@
-use data_strux::fenwick_tree::{FenwickTree, Group, Monoid};
+use algebrae::algebra::AbelianGroup;
+use data_strux::fenwick_tree::FenwickTree;
 use graphia::{csr::Csr, tree::EulerTour};
 use std::io::{BufWriter, Read, Write, stdin, stdout};
 
@@ -53,7 +54,7 @@ fn main() {
 #[derive(Clone, Copy)]
 struct Add(u64);
 
-impl Monoid for Add {
+impl AbelianGroup for Add {
     fn id() -> Self {
         Add(0)
     }
@@ -61,9 +62,7 @@ impl Monoid for Add {
     fn op(&self, other: &Self) -> Self {
         Add(self.0.wrapping_add(other.0))
     }
-}
 
-impl Group for Add {
     fn inv(&self) -> Self {
         Add(self.0.wrapping_neg())
     }
