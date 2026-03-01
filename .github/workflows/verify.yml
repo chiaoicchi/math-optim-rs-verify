@@ -21,6 +21,12 @@ jobs:
             problem: unionfind
 
           - category: data_structure
+            problem: unionfind_with_potential
+
+          - category: data_structure
+            problem: unionfind_with_potential_non_commutative_group
+
+          - category: data_structure
             problem: staticrmq
 
           - category: data_structure
