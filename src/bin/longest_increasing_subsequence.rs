@@ -23,6 +23,6 @@ fn main() {
     let lis = lis(&a);
     writeln!(stdout, "{}", lis.len()).ok();
     for i in lis {
-        write!(stdout, "{} t", i).ok();
+        write!(stdout, "{} ", i).ok();
     }
 }
