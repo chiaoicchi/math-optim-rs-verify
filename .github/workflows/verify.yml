@@ -56,6 +56,9 @@ jobs:
           - category: tree
             problem: vertex_add_subtree_sum
 
+          - category: convolution
+            problem: convolution_mod
+
           - category: number_theory
             problem: primality_test
 
