@@ -1,6 +1,6 @@
 use algebrae::{
     algebra::{Action, Monoid},
-    modular::Gf32,
+    num_theory::Gf,
 };
 use data_strux::segment_tree::DualSegmentTree;
 use std::io::{BufWriter, Read, Write, stdin, stdout};
@@ -27,8 +27,8 @@ fn main() {
     let n = parse!(usize);
     let q = parse!(u32);
 
-    let a: Vec<Gf32<MOD>> = (0..n).map(|_| Gf32::new(parse!(u32))).collect();
-    let mut dual_segment_tree = DualSegmentTree::<Gf32<MOD>, Affine>::from_vec(a);
+    let a: Vec<Gf<MOD>> = (0..n).map(|_| Gf::new(parse!(u32))).collect();
+    let mut dual_segment_tree = DualSegmentTree::<Gf<MOD>, Affine>::from_vec(a);
 
     for _ in 0..q {
         let t = parse!(u8);
@@ -37,7 +37,7 @@ fn main() {
             let r: usize = parse!(usize);
             let b: u32 = parse!(u32);
             let c: u32 = parse!(u32);
-            dual_segment_tree.range_apply(l..r, Affine(Gf32::new(b), Gf32::new(c)));
+            dual_segment_tree.range_apply(l..r, Affine(Gf::new(b), Gf::new(c)));
         } else {
             let i = parse!(usize);
             writeln!(stdout, "{}", dual_segment_tree.get(i)).ok();
@@ -46,11 +46,11 @@ fn main() {
 }
 
 #[derive(Clone)]
-struct Affine(Gf32<MOD>, Gf32<MOD>);
+struct Affine(Gf<MOD>, Gf<MOD>);
 
 impl Monoid for Affine {
     fn id() -> Self {
-        Affine(Gf32::new(1), Gf32::new(0))
+        Affine(Gf::new(1), Gf::new(0))
     }
 
     fn op(&self, other: &Self) -> Self {
@@ -60,8 +60,8 @@ impl Monoid for Affine {
     }
 }
 
-impl Action<Gf32<MOD>> for Affine {
-    fn act(&self, s: &Gf32<MOD>) -> Gf32<MOD> {
+impl Action<Gf<MOD>> for Affine {
+    fn act(&self, s: &Gf<MOD>) -> Gf<MOD> {
         self.0 * s + self.1
     }
 }

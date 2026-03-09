@@ -1,4 +1,4 @@
-use algebrae::{conv::ntt::multiply32, modular::Gf32};
+use algebrae::{conv::ntt::multiply, num_theory::Gf};
 use std::io::{BufWriter, Read, Write, stdin, stdout};
 
 const P: u32 = 998_244_353;
@@ -22,10 +22,10 @@ fn main() {
 
     let n = parse!(usize);
     let m = parse!(usize);
-    let a: Vec<Gf32<P>> = (0..n).map(|_| Gf32::new(parse!(u32))).collect();
-    let b: Vec<Gf32<P>> = (0..m).map(|_| Gf32::new(parse!(u32))).collect();
+    let a: Vec<Gf<P>> = (0..n).map(|_| Gf::new(parse!(u32))).collect();
+    let b: Vec<Gf<P>> = (0..m).map(|_| Gf::new(parse!(u32))).collect();
 
-    let c = multiply32(a, b);
+    let c = multiply(a, b);
     for c in c.iter() {
         write!(stdout, "{} ", c).ok();
     }
