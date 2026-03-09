@@ -54,6 +54,12 @@ jobs:
             problem: lca
 
           - category: tree
+            problem: vertex_add_path_sum
+
+          - category: tree
+            problem: vertex_set_path_composite
+
+          - category: tree
             problem: vertex_add_subtree_sum
 
           - category: convolution
