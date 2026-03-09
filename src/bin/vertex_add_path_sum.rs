@@ -28,10 +28,10 @@ fn main() {
     let csr = Csr::from_undirected_unweighted(n, &uv);
     let hpd = Hpd::from_csr(0, &csr);
     let mut sa = vec![Add::id(); n + 1];
-    for i in 0..n {
+    for (i, a) in a.iter().enumerate() {
         let sub = hpd.subtree(i);
-        sa[sub.start] = sa[sub.start].op(&a[i]);
-        sa[sub.end] = sa[sub.end].op(&a[i].inv());
+        sa[sub.start] = sa[sub.start].op(&a);
+        sa[sub.end] = sa[sub.end].op(&a.inv());
     }
     let mut fenwick = FenwickTree::from_vec(sa);
 
