@@ -1,4 +1,4 @@
-use algebrae::{algebra::Group, modular::Gf32};
+use algebrae::{algebra::Group, num_theory::Gf};
 use data_strux::disjoint_set::PotentialDsu;
 use std::io::{BufWriter, Read, Write, stdin, stdout};
 
@@ -33,7 +33,7 @@ fn main() {
         let v = parse!(usize);
         if t == 0 {
             let x = parse!(u32);
-            writeln!(stdout, "{}", dsu.unite(v, u, Gf32Add(Gf32::new(x))) as u8).ok();
+            writeln!(stdout, "{}", dsu.unite(v, u, GfAdd(Gf::new(x))) as u8).ok();
         } else {
             if let Some(ans) = dsu.potential(v, u) {
                 writeln!(stdout, "{}", ans.0).ok();
@@ -45,11 +45,11 @@ fn main() {
 }
 
 #[derive(Clone, Copy, PartialEq)]
-struct Gf32Add(Gf32<MOD>);
+struct GfAdd(Gf<MOD>);
 
-impl Group for Gf32Add {
+impl Group for GfAdd {
     fn id() -> Self {
-        Self(Gf32::new(0))
+        Self(Gf::new(0))
     }
 
     fn op(&self, rhs: &Self) -> Self {

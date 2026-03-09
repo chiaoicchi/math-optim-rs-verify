@@ -1,6 +1,6 @@
 use algebrae::{
     linear::{Matrix, linear_system},
-    modular::Gf32,
+    num_theory::Gf,
 };
 use std::io::{BufWriter, Read, Write, stdin, stdout};
 
@@ -25,8 +25,8 @@ fn main() {
 
     let n = parse!(usize);
     let m = parse!(usize);
-    let a: Vec<Gf32<MOD>> = (0..n * m).map(|_| Gf32::new(parse!(u32))).collect();
-    let b: Vec<Gf32<MOD>> = (0..n).map(|_| Gf32::new(parse!(u32))).collect();
+    let a: Vec<Gf<MOD>> = (0..n * m).map(|_| Gf::new(parse!(u32))).collect();
+    let b: Vec<Gf<MOD>> = (0..n).map(|_| Gf::new(parse!(u32))).collect();
     let mat_a = Matrix::from_flat(n, m, a);
     if let Some((sol, kernel)) = linear_system(&mat_a, &b) {
         let r = kernel.h();

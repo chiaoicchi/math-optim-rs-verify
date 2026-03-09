@@ -1,4 +1,4 @@
-use algebrae::{linear::Matrix, modular::Gf32};
+use algebrae::{linear::Matrix, num_theory::Gf};
 use std::io::{BufWriter, Read, Write, stdin, stdout};
 
 const MOD: u32 = 998_244_353;
@@ -22,7 +22,7 @@ fn main() {
 
     let n = parse!(usize);
     let m = parse!(usize);
-    let a: Vec<Gf32<MOD>> = (0..n * m).map(|_| Gf32::new(parse!(u32))).collect();
+    let a: Vec<Gf<MOD>> = (0..n * m).map(|_| Gf::new(parse!(u32))).collect();
     let mat_a = Matrix::from_flat(n, m, a);
     let ans = mat_a.rank();
     writeln!(stdout, "{}", ans).ok();

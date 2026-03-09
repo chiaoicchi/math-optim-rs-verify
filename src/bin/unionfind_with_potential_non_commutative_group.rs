@@ -1,4 +1,4 @@
-use algebrae::{algebra::Group, modular::Gf32};
+use algebrae::{algebra::Group, num_theory::Gf};
 use data_strux::disjoint_set::PotentialDsu;
 use std::io::{BufWriter, Read, Write, stdin, stdout};
 
@@ -42,7 +42,7 @@ fn main() {
                 dsu.unite(
                     v,
                     u,
-                    Gf32Matrix(Gf32::new(x0), Gf32::new(x1), Gf32::new(x2), Gf32::new(x3))
+                    GfMatrix(Gf::new(x0), Gf::new(x1), Gf::new(x2), Gf::new(x3))
                 ) as u8
             )
             .ok();
@@ -57,11 +57,11 @@ fn main() {
 }
 
 #[derive(Clone, Copy, PartialEq)]
-struct Gf32Matrix(Gf32<MOD>, Gf32<MOD>, Gf32<MOD>, Gf32<MOD>);
+struct GfMatrix(Gf<MOD>, Gf<MOD>, Gf<MOD>, Gf<MOD>);
 
-impl Group for Gf32Matrix {
+impl Group for GfMatrix {
     fn id() -> Self {
-        Self(Gf32::new(1), Gf32::new(0), Gf32::new(0), Gf32::new(1))
+        Self(Gf::new(1), Gf::new(0), Gf::new(0), Gf::new(1))
     }
 
     fn op(&self, rhs: &Self) -> Self {
